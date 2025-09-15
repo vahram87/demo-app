@@ -1,11 +1,9 @@
-// app/javascript/controllers/global_search_controller.js
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="global-search"
 export default class extends Controller {
   static targets = ["input", "results", "defaults", "noResults", "previews"]
   static values  = {
-    endpoint: String,         // e.g. "/users/search.json"
+    endpoint: String,
     debounce: { type: Number, default: 200 },
     minChars: { type: Number, default: 1 },
     param:    { type: String, default: "q" }
@@ -57,7 +55,6 @@ export default class extends Controller {
       return
     }
 
-    // Build the list (left column)
     const group = document.createElement("el-command-group")
     group.className = "sm:h-96"
     users.forEach((u, i) => {
@@ -78,7 +75,6 @@ export default class extends Controller {
       a.addEventListener("focus",     () => this._select(a))
       group.appendChild(a)
 
-      // Build the matching preview (right column)
       const preview = document.createElement("el-command-preview")
       preview.setAttribute("for", id)
       preview.hidden = true
@@ -106,7 +102,6 @@ export default class extends Controller {
 
     this.resultsTarget.appendChild(group)
 
-    // show sections
     this._hide(this.defaultsTarget, this.noResultsTarget)
     this._show(this.resultsTarget, this.previewsTarget)
 
@@ -115,9 +110,7 @@ export default class extends Controller {
     if (first) this._select(first)
   }
 
-  // helpers
   _select(el) {
-    // clear selection
     this.resultsTarget.querySelectorAll("a[aria-selected='true']").forEach(n => n.setAttribute("aria-selected","false"))
     this.previewsTarget.querySelectorAll("el-command-preview").forEach(p => p.hidden = true)
 

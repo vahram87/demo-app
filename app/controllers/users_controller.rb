@@ -79,20 +79,15 @@ class UsersController < ApplicationController
       @user = User.find(params.expect(:id))
     end
 
-    # Only allow a list of trusted parameters through.
     def user_params
       params.expect(user: [ :name, :email, :phone ])
     end
 
     def avatar_url_for(user)
       if user.image.attached? && user.image.content_type&.start_with?("image/")
-        # no variants – return the original blob URL
         rails_blob_url(user.image, only_path: false)
       else
-        # fallback image:
-        # put `user.png` in app/assets/images/user.png
         helpers.image_url("user.png")
-        # (if you actually put it in /public, use "/user.png")
       end
     end
 end
