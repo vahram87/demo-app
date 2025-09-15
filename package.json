@@ -9,9 +9,12 @@
     "build:css": "npx @tailwindcss/cli -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
   },
   "dependencies": {
+    "@algolia/autocomplete-js": "^1.19.4",
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.16",
     "@tailwindcss/cli": "^4.1.13",
+    "algoliasearch": "^4.25.2",
+    "instantsearch.js": "^4.80.0",
     "tailwindcss": "^4.1.13"
   }
 }

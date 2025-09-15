@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   resources :leads
   resources :posts
   root "home#index"
-  get "/search/posts",    to: "posts#search"
-  get "/search/leads", to: "leads#search"
+  # get "/search/posts",    to: "posts#search"
+  # get "/search/leads", to: "leads#search"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

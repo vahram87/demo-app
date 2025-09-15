@@ -57,14 +57,14 @@ class PostsController < ApplicationController
     end
   end
 
-  def search
-    q = params[:q].to_s.strip
-    scope = Post.order(created_at: :desc)
-    scope = scope.where("title ILIKE :q OR content ILIKE :q", q: "%#{q}%") if q.present?
-    render json: scope.limit(8).map { |p|
-      { id: p.id, title: p.title.presence || "Untitled", subtitle: l(p.created_at, format: :short), url: post_path(p) }
-    }
-  end
+  # def search
+  #   q = params[:q].to_s.strip
+  #   scope = Post.order(created_at: :desc)
+  #   scope = scope.where("title ILIKE :q OR content ILIKE :q", q: "%#{q}%") if q.present?
+  #   render json: scope.limit(8).map { |p|
+  #     { id: p.id, title: p.title.presence || "Untitled", subtitle: l(p.created_at, format: :short), url: post_path(p) }
+  #   }
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
