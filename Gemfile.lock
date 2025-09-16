@@ -376,6 +376,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  dotenv
   faker
   jbuilder
   jsbundling-rails

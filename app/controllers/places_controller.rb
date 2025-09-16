@@ -9,7 +9,7 @@ class PlacesController < ApplicationController
     q = params[:q].to_s.strip
     return render json: [] if q.blank?
 
-    key = "AIzaSyBd54PDz6KAkMxIXxbbwB4gRJJpEJOmz8g"
+    key = ENV["PLACES_API_KEY"]
     unless key.present?
       Rails.logger.error "Places: PLACES_API_KEY missing"
       return render json: []
