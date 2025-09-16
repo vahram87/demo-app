@@ -104,7 +104,7 @@ export default class extends Controller {
       const preview = document.createElement("el-command-preview")
       preview.setAttribute("for", id)
       preview.hidden = true
-      preview.className = "h-96 w-1/2 flex-none flex-col divide-y divide-gray-100 overflow-y-auto sm:[&:not([hidden])]:flex"
+      preview.className = "h-96 w-full flex-none flex-col divide-y divide-gray-100 overflow-y-auto sm:[&:not([hidden])]:flex"
       preview.innerHTML = `
         <div class="flex-none p-6 text-center">
           <img src="${place.image_url || this._placeholder()}" alt=""
