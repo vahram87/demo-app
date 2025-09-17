@@ -4,6 +4,17 @@ Rails.application.routes.draw do
   root "home#index"
   # get "/search/posts",    to: "posts#search"
   # get "/search/leads", to: "leads#search"
+
+  resources :users do
+    collection { get :search }
+  end
+
+  resources :places do
+    collection do
+      get  :search
+      get  :photo
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
