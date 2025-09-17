@@ -46,9 +46,9 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          ALGOLIA_APPLICATION_ID: "dummy"
-          ALGOLIA_API_KEY: "dummy"
-          ALGOLIA_SEARCH_API_KEY: "dummy"
+          ALGOLIA_APPLICATION_ID:
+          ALGOLIA_API_KEY:
+          ALGOLIA_SEARCH_API_KEY:
         ports:
           - 5432:5432
         options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -77,9 +77,9 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
           # REDIS_URL: redis://localhost:6379/0
-          ALGOLIA_APPLICATION_ID: "dummy"
-          ALGOLIA_API_KEY: "dummy"
-          ALGOLIA_SEARCH_API_KEY: "dummy"
+          ALGOLIA_APPLICATION_ID:
+          ALGOLIA_API_KEY:
+          ALGOLIA_SEARCH_API_KEY:
         run: bin/rails db:test:prepare test test:system
 
       - name: Keep screenshots from failed system tests
