@@ -7,8 +7,11 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import GlobalSearchController from "./global_search_controller"
-Stimulus.register("global-search", GlobalSearchController)
+import UsersSearchController from "./users_search_controller"
+Stimulus.register("users-search", UsersSearchController)
 
 import PlaceSearchController from "./place_search_controller"
 Stimulus.register("place-search", PlaceSearchController)
+
+import PostsSearchController from "./posts_search_controller"
+Stimulus.register("posts-search", PostsSearchController)

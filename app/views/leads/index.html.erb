@@ -1,44 +1,55 @@
-<div class="mb-6">
-  <%= render "shared/search" %>
-</div>
 <div class="flex items-center justify-between mb-6">
-  <h1 class="text-2xl font-semibold text-gray-900">Users</h1>
-  <%= link_to "New user",
-      new_user_path,
-      class: "inline-flex items-center rounded-md bg-teal-600 px-4 py-2 text-white hover:bg-teal-700" %>
+  <h1 class="text-2xl font-semibold text-gray-900">Leads</h1>
+  <%= link_to "New lead",
+              new_lead_path,
+              class: "inline-flex items-center rounded-md bg-teal-600 px-4 py-2 text-white hover:bg-teal-700" %>
 </div>
 
-<% if @users.any? %>
+<% if @leads.any? %>
   <div class="overflow-x-auto bg-white shadow-sm ring-1 ring-gray-200 rounded-lg">
     <table class="min-w-full divide-y divide-gray-200">
       <thead class="bg-gray-50">
         <tr>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Name</th>
           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Email</th>
           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Phone</th>
           <th scope="col" class="py-3.5 pl-3 pr-4 sm:pr-6 text-right text-sm font-semibold text-gray-900">Actions</th>
         </tr>
       </thead>
+
       <tbody class="divide-y divide-gray-200 bg-white">
-        <% @users.each do |user| %>
+        <% @leads.each do |lead| %>
           <tr class="hover:bg-gray-50">
+            <!-- Name -->
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">
+              <%= link_to (lead.name.presence || "—"),
+                          lead_path(lead),
+                          class: "text-teal-700 hover:underline" %>
+            </td>
+
             <!-- Email -->
             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-700">
-              <%= link_to user.email, user_path(user), class: "text-teal-700 hover:underline" %>
+              <%= lead.email.present? ? mail_to(lead.email) : "—" %>
             </td>
 
             <!-- Phone -->
             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-700">
-              <%= user.phone.presence || "-" %>
+              <%= lead.phone.presence || "—" %>
             </td>
 
             <!-- Actions -->
             <td class="whitespace-nowrap py-4 pl-3 pr-4 text-sm text-right sm:pr-6">
               <div class="inline-flex items-center gap-1">
-                <%= link_to "Show", user_path(user),
+                <%= link_to "Show",
+                            lead_path(lead),
                             class: "px-2 py-1 rounded-md text-gray-700 hover:bg-gray-100" %>
-                <%= link_to "Edit", edit_user_path(user),
+
+                <%= link_to "Edit",
+                            edit_lead_path(lead),
                             class: "px-2 py-1 rounded-md text-teal-700 hover:bg-teal-50" %>
-                <%= button_to "Delete", user_path(user),
+
+                <%= button_to "Delete",
+                              lead_path(lead),
                               method: :delete,
                               data: { turbo_confirm: "Are you sure?" },
                               form: { class: "inline" },
@@ -53,12 +64,12 @@
 <% else %>
   <!-- Empty state -->
   <div class="rounded-lg border border-dashed border-gray-300 p-12 text-center">
-    <h3 class="mt-2 text-sm font-semibold text-gray-900">No users</h3>
-    <p class="mt-1 text-sm text-gray-500">Get started by creating your first user.</p>
+    <h3 class="mt-2 text-sm font-semibold text-gray-900">No leads</h3>
+    <p class="mt-1 text-sm text-gray-500">Get started by creating your first lead.</p>
     <div class="mt-6">
-      <%= link_to "New user",
-          new_user_path,
-          class: "inline-flex items-center rounded-md bg-teal-600 px-4 py-2 text-white hover:bg-teal-700" %>
+      <%= link_to "New lead",
+                  new_lead_path,
+                  class: "inline-flex items-center rounded-md bg-teal-600 px-4 py-2 text-white hover:bg-teal-700" %>
     </div>
   </div>
 <% end %>

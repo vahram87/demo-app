@@ -4,6 +4,9 @@ class PlacesController < ApplicationController
   require "json"
   require "uri"
 
+  def index
+  end
+
   # GET /places/search.json?q=coffee%20in%20boston
   def search
     q = params[:q].to_s.strip

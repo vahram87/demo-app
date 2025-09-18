@@ -1,0 +1,46 @@
+<el-command-palette
+  data-controller="posts-search"
+  data-posts-search-resources-value='[
+    {"name":"Posts","url":"/search/posts"}
+  ]'
+  data-posts-search-prefetch-value="true"
+>
+  <div class="grid grid-cols-1 border-b border-gray-100">
+    <input type="text" placeholder="Search…"
+           class="col-start-1 row-start-1 h-12 w-full pl-11 pr-4 text-base text-gray-900 outline-none placeholder:text-gray-400 sm:text-sm"
+           data-posts-search-target="input" />
+    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+         class="pointer-events-none col-start-1 row-start-1 ml-4 size-5 self-center text-gray-400">
+      <path d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" fill-rule="evenodd"/>
+    </svg>
+  </div>
+
+  <el-command-list class="max-h-80 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
+                   data-posts-search-target="list">
+  </el-command-list>
+
+  <el-no-results class="p-4 text-sm text-gray-500" hidden data-posts-search-target="empty">
+    No results.
+  </el-no-results>
+
+  <template data-posts-search-target="template">
+    <a href="#"
+       class="flex items-center justify-between gap-3 px-4 py-2 cursor-default select-none
+              focus:outline-none aria-selected:bg-indigo-600 aria-selected:text-white">
+      <div class="flex items-center gap-3 min-w-0">
+        <!-- Left icon/avatar circle -->
+        <div class="size-6 shrink-0 rounded bg-gray-100 text-gray-400 grid place-items-center aria-selected:bg-indigo-500 aria-selected:text-white" data-icon>
+          <!-- default magnifier -->
+          <svg viewBox="0 0 20 20" fill="currentColor" class="size-4"><path d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"/></svg>
+        </div>
+        <div class="min-w-0">
+          <div class="truncate font-medium" data-title></div>
+          <div class="mt-0.5 text-xs text-gray-500 aria-selected:text-indigo-100 truncate" data-subtitle></div>
+        </div>
+      </div>
+      <span class="text-[11px] text-gray-400 aria-selected:text-indigo-100">↵</span>
+    </a>
+  </template>
+
+
+</el-command-palette>
