@@ -12,3 +12,6 @@ Stimulus.register("users-search", UsersSearchController)
 
 import PlaceSearchController from "./place_search_controller"
 Stimulus.register("place-search", PlaceSearchController)
+
+import PostsSearchController from "./posts_search_controller"
+Stimulus.register("posts-search", PostsSearchController)
