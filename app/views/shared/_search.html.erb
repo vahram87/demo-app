@@ -1,16 +1,13 @@
-<!-- Elements (once on page) -->
-<script type="module" src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1"></script>
-
 <button command="show-modal" commandfor="dialog"
-  class="rounded-md bg-white/80 px-2.5 py-1.5 text-sm font-semibold text-gray-900 hover:bg-white/90">
-  Open command palette
+  class="inline-flex items-center rounded-md bg-teal-600 px-4 py-2 text-white hover:bg-teal-700">
+  Search User
 </button>
 
 <el-dialog
-  data-controller="global-search"
-  data-global-search-endpoint-value="/users/search.json"
-  data-global-search-debounce-value="200"
-  data-global-search-min-chars-value="1">
+  data-controller="users-search"
+  data-users-search-endpoint-value="/users/search.json"
+  data-users-search-debounce-value="200"
+  data-users-search-min-chars-value="1">
 
   <dialog id="dialog" class="m-0 p-0 backdrop:bg-gray-500/25 backdrop:bg-transparent">
     <el-dialog-backdrop class="fixed inset-0 bg-gray-500/25 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"></el-dialog-backdrop>
@@ -21,8 +18,8 @@
           <!-- search box -->
           <div class="grid grid-cols-1">
             <input type="text" placeholder="Search…"
-              data-global-search-target="input"
-              data-action="input->global-search#debouncedInput keydown->global-search#onKeydown"
+              data-users-search-target="input"
+              data-action="input->users-search#debouncedInput keydown->users-search#onKeydown"
               class="col-start-1 row-start-1 h-12 w-full pl-11 pr-4 text-base text-gray-900 outline-none placeholder:text-gray-400 sm:text-sm" />
             <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
               class="pointer-events-none col-start-1 row-start-1 ml-4 size-5 self-center text-gray-400">
@@ -36,17 +33,17 @@
             <div class="max-h-96 min-w-0 flex-auto scroll-py-4 overflow-y-auto px-6 py-4">
               <el-command-list class="-mx-2 text-sm text-gray-700 [&:not([hidden])]:block">
                 <!-- defaults shown when input empty -->
-                <el-defaults data-global-search-target="defaults">
+                <el-defaults data-users-search-target="defaults">
                   <h2 class="mx-2 mb-4 mt-2 text-xs font-semibold text-gray-500">Recent searches</h2>
                   <div class="text-sm text-gray-700"><!-- optional static links --></div>
                 </el-defaults>
 
                 <!-- dynamic results are injected here -->
-                <div data-global-search-target="results" hidden></div>
+                <div data-users-search-target="results" hidden></div>
               </el-command-list>
 
               <!-- no results -->
-              <el-no-results data-global-search-target="noResults" hidden
+              <el-no-results data-users-search-target="noResults" hidden
                 class="px-6 py-14 text-center text-sm sm:px-14 [&:not([hidden])]:block">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="mx-auto size-6 text-gray-400">
                   <path d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" stroke-linecap="round" stroke-linejoin="round" />
@@ -57,7 +54,7 @@
             </div>
 
             <!-- RIGHT: previews we generate -->
-            <div data-global-search-target="previews"
+            <div data-users-search-target="previews"
                  class="h-96 w-1/2 flex-none flex-col divide-y divide-gray-100 overflow-y-auto sm:[&:not([hidden])]:flex"
                  hidden></div>
           </div>
