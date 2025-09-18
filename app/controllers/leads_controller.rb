@@ -57,14 +57,21 @@ class LeadsController < ApplicationController
     end
   end
 
-  # def search
-  #   q = params[:q].to_s.strip
-  #   scope = Lead.order(updated_at: :desc)
-  #   scope = scope.where("name ILIKE :q OR email ILIKE :q OR phone ILIKE :q", q: "%#{q}%") if q.present?
-  #   render json: scope.limit(8).select(:id, :name, :email).map { |l|
-  #     { id: l.id, title: l.name, subtitle: l.email, url: lead_path(l) }
-  #   }
-  # end
+  def search
+    @q = params[:q].to_s.strip
+    scope = Lead.order(updated_at: :desc)
+    scope = scope.where("name ILIKE :q OR email ILIKE :q OR phone ILIKE :q", q: "%#{@q}%") if @q.present?
+    @leads = scope.limit(8)
+
+    respond_to do |format|
+      format.html { render :search } # uses app/views/leads/search.html.erb
+      format.json do
+        render json: @leads.select(:id, :name, :email).map { |l|
+          { id: l.id, title: l.name, subtitle: l.email, url: lead_path(l) }
+        }
+      end
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

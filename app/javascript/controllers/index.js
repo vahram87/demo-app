@@ -15,3 +15,9 @@ Stimulus.register("place-search", PlaceSearchController)
 
 import PostsSearchController from "./posts_search_controller"
 Stimulus.register("posts-search", PostsSearchController)
+
+import LeadsSearchController from "./leads_search_controller"
+Stimulus.register("leads-search", LeadsSearchController)
+
+import DialogController from "./dialog_controller"
+application.register("dialog", DialogController)

@@ -57,18 +57,17 @@ class UsersController < ApplicationController
     end
   end
 
+  # app/controllers/leads_controller.rb
   def search
-    users = User.order(:name).text_search(params[:q].to_s.strip)
+    leads = Lead.order(:name).text_search(params[:q].to_s.strip)
     limit = params.fetch(:limit, 25).to_i.clamp(1, 100)
 
-    render json: users.limit(limit).map { |u|
+    render json: leads.limit(limit).map { |l|
       {
-        id: u.id,
-        name: u.name,
-        email: u.email,
-        phone: u.phone,
-        url: user_url(u),
-        image_url: avatar_url_for(u)
+        id: l.id,
+        name: l.name,
+        email: l.email,
+        phone: l.phone
       }
     }
   end

@@ -31,12 +31,13 @@
     </script>
   </head>
 
-  <body>
+  <body data-controller="dialog">
     <%= render "layouts/sidebar" %>
     <div class="lg:pl-72">
       <main class="px-4 sm:px-6 lg:px-8 py-6">
         <%= yield %>
       </main>
     </div>
+    <%= render "layouts/dialog" %>
   </body>
 </html>

@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  resources :leads
   resources :posts
   root "home#index"
-  # get "/search/posts",    to: "posts#search"
-  # get "/search/leads", to: "leads#search"
+
 
   resources :users do
+    collection { get :search }
+  end
+
+  resources :leads do
     collection { get :search }
   end
 
