@@ -8,7 +8,6 @@ on:
 jobs:
   scan_ruby:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -46,22 +45,21 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          ALGOLIA_APPLICATION_ID:
-          ALGOLIA_API_KEY:
-          ALGOLIA_SEARCH_API_KEY:
         ports:
           - 5432:5432
-        options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=3
-
-      # redis:
-      #   image: redis
-      #   ports:
-      #     - 6379:6379
-      #   options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
+        options: >-
+          --health-cmd="pg_isready"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
 
     steps:
       - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libpq-dev libyaml-dev node-gyp pkg-config python-is-python3 google-chrome-stable
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y \
+            build-essential git libpq-dev libyaml-dev node-gyp pkg-config \
+            python-is-python3 google-chrome-stable
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -72,15 +70,21 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Run tests
+      - name: Prepare DB & run tests
         env:
           RAILS_ENV: test
-          DATABASE_URL: postgres://postgres:postgres@localhost:5432
-          # REDIS_URL: redis://localhost:6379/0
-          ALGOLIA_APPLICATION_ID:
-          ALGOLIA_API_KEY:
-          ALGOLIA_SEARCH_API_KEY:
-        run: bin/rails db:test:prepare test test:system
+          # IMPORTANT: include a database name so Rails can create it
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/app_test
+          # Provide dummy Algolia keys to satisfy initializers/controllers in CI
+          ALGOLIA_APPLICATION_ID: dummy
+          ALGOLIA_API_KEY: dummy
+          ALGOLIA_SEARCH_API_KEY: dummy
+          # If you prefer to gate Algolia in code, you could use:
+          # ALGOLIA_DISABLED: "1"
+        run: |
+          bin/rails db:prepare
+          bin/rails test
+          bin/rails test:system
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
