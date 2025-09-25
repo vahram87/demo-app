@@ -8,16 +8,19 @@ import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
 import UsersSearchController from "./users_search_controller"
-Stimulus.register("users-search", UsersSearchController)
+application.register("users-search", UsersSearchController)
 
 import PlaceSearchController from "./place_search_controller"
-Stimulus.register("place-search", PlaceSearchController)
+application.register("place-search", PlaceSearchController)
 
 import PostsSearchController from "./posts_search_controller"
-Stimulus.register("posts-search", PostsSearchController)
+application.register("posts-search", PostsSearchController)
 
 import LeadsSearchController from "./leads_search_controller"
-Stimulus.register("leads-search", LeadsSearchController)
+application.register("leads-search", LeadsSearchController)
 
 import DialogController from "./dialog_controller"
 application.register("dialog", DialogController)
+
+import CompanySearchController from "./company_search_controller"
+application.register("company-search", CompanySearchController)

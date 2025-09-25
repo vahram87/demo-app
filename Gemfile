@@ -66,3 +66,6 @@ group :test do
 end
 gem "faker"
 gem "algoliasearch-rails"
+
+gem "mechanize"
+gem "nokogiri"
