@@ -1,0 +1,149 @@
+<%= form_with(model: google_place) do |form| %>
+  <% if google_place.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(google_place.errors.count, "error") %> prohibited this google_place from being saved:</h2>
+      <ul>
+        <% google_place.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div class="mb-4">
+      <%= form.label :place_id, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :place_id, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :title, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :title, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :address, class: "block text-sm font-medium leading-6 text-gray-900" %>
+    <%= form.text_field :address, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+    <div class="mb-4">
+      <%= form.label :short_address, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :short_address, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :latitude, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :latitude, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :longitude, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :longitude, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div class="mb-4">
+      <%= form.label :phone_international, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :phone_international, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :phone_national, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :phone_national, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div class="mb-4">
+      <%= form.label :website_uri, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :website_uri, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :google_maps_uri, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :google_maps_uri, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div class="mb-4">
+      <%= form.label :primary_type, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :primary_type, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :primary_type_display_name, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :primary_type_display_name, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :types, class: "block text-sm font-medium leading-6 text-gray-900" %>
+    <%= form.text_area :types, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+    <div class="mb-4">
+      <%= form.label :rating, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :rating, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :user_ratings_total, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.number_field :user_ratings_total, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :price_level, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.number_field :price_level, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div class="mb-4">
+      <%= form.label :icon_mask_base_uri, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :icon_mask_base_uri, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :icon_background_color, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :icon_background_color, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div class="mb-4">
+      <%= form.label :plus_code_global, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :plus_code_global, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :plus_code_compound, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :plus_code_compound, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+  </div>
+
+  <div class="mb-4 flex items-center gap-3">
+    <%= form.checkbox :open_now, class: "h-4 w-4 rounded border-gray-300 text-sky-800 focus:ring-sky-800" %>
+    <%= form.label :open_now, class: "block text-sm font-medium leading-6 text-gray-900" %>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div class="mb-4">
+      <%= form.label :photo_ref, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :photo_ref, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :data, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :data, class: "mt-2 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-800 sm:text-sm sm:leading-6" %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.submit "Save", class: "btn" %>
+  </div>
+<% end %>

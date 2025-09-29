@@ -1,0 +1,2 @@
+json.extract! google_place, :id, :place_id, :title, :address, :short_address, :latitude, :longitude, :phone_international, :phone_national, :website_uri, :google_maps_uri, :primary_type, :primary_type_display_name, :types, :rating, :user_ratings_total, :price_level, :icon_mask_base_uri, :icon_background_color, :plus_code_global, :plus_code_compound, :open_now, :photo_ref, :data, :created_at, :updated_at
+json.url google_place_url(google_place, format: :json)

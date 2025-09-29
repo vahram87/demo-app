@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_15_080822) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_28_152815) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -40,6 +40,34 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_15_080822) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "google_places", force: :cascade do |t|
+    t.string "place_id"
+    t.string "title"
+    t.string "address"
+    t.string "short_address"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.string "phone_international"
+    t.string "phone_national"
+    t.string "website_uri"
+    t.string "google_maps_uri"
+    t.string "primary_type"
+    t.string "primary_type_display_name"
+    t.text "types"
+    t.decimal "rating"
+    t.integer "user_ratings_total"
+    t.integer "price_level"
+    t.string "icon_mask_base_uri"
+    t.string "icon_background_color"
+    t.string "plus_code_global"
+    t.string "plus_code_compound"
+    t.boolean "open_now"
+    t.string "photo_ref"
+    t.jsonb "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "leads", force: :cascade do |t|

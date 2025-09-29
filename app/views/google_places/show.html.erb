@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @google_place %>
+
+<div>
+  <%= link_to "Edit this google place", edit_google_place_path(@google_place) %> |
+  <%= link_to "Back to google places", google_places_path %>
+
+  <%= button_to "Destroy this google place", @google_place, method: :delete %>
+</div>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :google_places do
+    collection { post :prefill }
+  end
   resources :posts
   root "home#index"
 

@@ -1,0 +1,11 @@
+<div class="mt-4 px-4 sm:px-6 lg:px-8">
+  <button command="show-modal" commandfor="places-dialog"
+    class="btn">
+    Search places
+  </button>
+  <div class="mb-6">
+    <%= render "shared/places_search" %>
+  </div>
+  <%= render "form", google_place: @google_place %>
+</div>
+
