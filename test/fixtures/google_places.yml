@@ -1,0 +1,51 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  place_id: MyString
+  title: MyString
+  address: MyString
+  short_address: MyString
+  latitude: 9.99
+  longitude: 9.99
+  phone_international: MyString
+  phone_national: MyString
+  website_uri: MyString
+  google_maps_uri: MyString
+  primary_type: MyString
+  primary_type_display_name: MyString
+  types: MyText
+  rating: 9.99
+  user_ratings_total: 1
+  price_level: 1
+  icon_mask_base_uri: MyString
+  icon_background_color: MyString
+  plus_code_global: MyString
+  plus_code_compound: MyString
+  open_now: false
+  photo_ref: MyString
+  data: 
+
+two:
+  place_id: MyString
+  title: MyString
+  address: MyString
+  short_address: MyString
+  latitude: 9.99
+  longitude: 9.99
+  phone_international: MyString
+  phone_national: MyString
+  website_uri: MyString
+  google_maps_uri: MyString
+  primary_type: MyString
+  primary_type_display_name: MyString
+  types: MyText
+  rating: 9.99
+  user_ratings_total: 1
+  price_level: 1
+  icon_mask_base_uri: MyString
+  icon_background_color: MyString
+  plus_code_global: MyString
+  plus_code_compound: MyString
+  open_now: false
+  photo_ref: MyString
+  data: 

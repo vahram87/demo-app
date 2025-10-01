@@ -1,0 +1,2 @@
+class GooglePlace < ApplicationRecord
+end
